@@ -3,10 +3,12 @@
 # Python Functions                                 Logging and Standard Output #
 #==============================================================================#
 # Required Libraries and Configuration                                         #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
 # Python Functions for Logging and Standard Output                             #
-# : Logging and Standard Output                                    messages(3) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Logging and Standard Output                                       messages #
 #==============================================================================#
 
 
@@ -46,7 +48,7 @@ from logging import log as logging_log
 def messages(message, level="info", raised=None):
     #
     # Initial section for instantizing variables expected by remaining routine
-    resource = logging_getLogger()
+    loggered = logging_getLogger()
     levels = {"debug": 10, "info": 20, "warn": 30, "err": 40, "crit": 50}
     argsdict = dict()
     #

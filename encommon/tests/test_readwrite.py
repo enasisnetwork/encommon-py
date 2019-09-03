@@ -3,9 +3,12 @@
 # Python Functions                                         Reading and Writing #
 #==============================================================================#
 # Python Functions for Reading and Writing                                     #
-# : Simple File Writing                                           writefile(3) #
-# : Simple File Reading                                            readfile(1) #
-# : Locate Files and Directories                                  findfiles(2) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Simple File Writing                                              writefile #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Simple File Reading                                               readfile #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Locate Files and Directories                                     findfiles #
 #==============================================================================#
 
 

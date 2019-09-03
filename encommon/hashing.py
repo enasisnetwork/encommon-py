@@ -3,10 +3,12 @@
 # Python Functions                                           Generating Hashes #
 #==============================================================================#
 # Required Libraries and Configuration                                         #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
 # Python Functions for Generating Hashes                                       #
-# : Generate Hashes from Values                                    makehash(2) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Generate Hashes from Values                                       makehash #
 #==============================================================================#
 
 

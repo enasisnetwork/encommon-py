@@ -3,7 +3,8 @@
 # Python Functions                                 Logging and Standard Output #
 #==============================================================================#
 # Python Functions for Logging and Standard Output                             #
-# : Logging and Standard Output                                    messages(3) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Logging and Standard Output                                       messages #
 #==============================================================================#
 
 

@@ -3,10 +3,12 @@
 # Python Functions                                          Network Addressing #
 #==============================================================================#
 # Required Libraries and Configuration                                         #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
 # Python Functions for Network Addressing                                      #
-# : Manipulate an IPv4 Network Address                           ipv4format(2) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Manipulate an IPv4 Network Address                              ipv4format #
 #==============================================================================#
 
 

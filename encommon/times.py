@@ -3,10 +3,12 @@
 # Python Functions                                             Time Processing #
 #==============================================================================#
 # Required Libraries and Configuration                                         #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
 # Python Functions for Time Processing                                         #
-# : Standard Time Converting                                     timeformat(2) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Standard Time Converting                                        timeformat #
 #==============================================================================#
 
 

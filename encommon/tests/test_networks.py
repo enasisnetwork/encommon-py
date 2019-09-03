@@ -3,7 +3,8 @@
 # Python Functions                                          Network Addressing #
 #==============================================================================#
 # Python Functions for Network Addressing                                      #
-# : Manipulate an IPv4 Network Address                           ipv4format(2) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Manipulate an IPv4 Network Address                              ipv4format #
 #==============================================================================#
 
 

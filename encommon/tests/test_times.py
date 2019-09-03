@@ -3,7 +3,8 @@
 # Python Functions                                             Time Processing #
 #==============================================================================#
 # Python Functions for Time Processing                                         #
-# : Standard Time Converting                                     timeformat(2) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Standard Time Converting                                        timeformat #
 #==============================================================================#
 
 

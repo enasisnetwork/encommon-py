@@ -3,9 +3,12 @@
 # Python Functions                                     Dictionary Manipulation #
 #==============================================================================#
 # Python Functions for Dictionary Manipulation                                 #
-# : List of Dictionaries to Dictionary                          dictstodict(1) #
-# : Sort List of Dictionaries                                     dictssort(2) #
-# : Reorder Dictionary of Dictionaries                            dictksort(2) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : List of Dictionaries to Dictionary                             dictstodict #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Sort List of Dictionaries                                        dictssort #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Reorder Dictionary of Dictionaries                               dictksort #
 #==============================================================================#
 
 

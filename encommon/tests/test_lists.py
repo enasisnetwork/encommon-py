@@ -3,9 +3,12 @@
 # Python Functions                                           List Manipulation #
 #==============================================================================#
 # Python Functions for List Manipulation                                       #
-# : Search List with Expressions                                 listsearch(2) #
-# : Deduplicate Redundant List Contents                           listdedup(1) #
-# : Flatten Multiple Depths of Lists                            listflatten(1) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Search List with Expressions                                    listsearch #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Deduplicate Redundant List Contents                              listdedup #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Flatten Multiple Depths of Lists                               listflatten #
 #==============================================================================#
 
 

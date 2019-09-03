@@ -3,7 +3,8 @@
 # Python Functions                                           Generating Hashes #
 #==============================================================================#
 # Python Functions for Generating Hashes                                       #
-# : Generate Hashes from Values                                    makehash(2) #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Generate Hashes from Values                                       makehash #
 #==============================================================================#
 
 
