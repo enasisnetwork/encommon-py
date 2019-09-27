@@ -36,7 +36,7 @@ distutils_core_setup(
     #
     # Information regarding the project including name version and description
     name="encommon",
-    version="1.0.0",
+    version="1.0.2",
     description="Enasis Network Common Libraries",
     author="Enasis Network",
     url="https://github.com/enasisnetwork/encommon-py",
@@ -48,7 +48,7 @@ distutils_core_setup(
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent"])
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
