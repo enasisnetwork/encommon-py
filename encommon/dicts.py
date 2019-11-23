@@ -75,7 +75,7 @@ def dictssort(source, sortby):
     argsdict.update({"reverse": sortby[1].lower()[:4] == "desc"})
     #
     # Reorder list of dictionaries on specified keys value from the dictionary
-    excepted = "Failed to sort the dictionary list using dictionary keyvalues"
+    excepted = "failed to sort the dictionary list using dictionary keyvalues"
     try: x = sorted(source, **argsdict)
     except Exception as reason: raise Exception(excepted) from reason
     else: returned = x
@@ -106,7 +106,7 @@ def dictksort(source, sortby):
     argsdict.update({"reverse": sortby[1].lower()[:4] == "desc"})
     #
     # Reorder dict of dictionaries on specified keys value from the dictionary
-    excepted = "Failed to sort dictionary preserving orders using collections"
+    excepted = "failed to sort dictionary preserving orders using collections"
     try: x = collections_OrderedDict(sorted(source.items(), **argsdict))
     except Exception as reason: raise Exception(excepted) from reason
     else: returned = x

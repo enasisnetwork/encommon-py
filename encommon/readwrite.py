@@ -55,15 +55,15 @@ from encommon.lists import listsearch
 def writefile(file_path, contents, truncate=False):
     #
     # Open the file path for writing optionally truncating before if specified
-    excepted = "Failed to open the file path specified for writing operations"
+    excepted = "failed to open the file path specified for writing operations"
     try: file_open = open(file_path, ("a" if not truncate else "w"))
     except Exception as reason: raise Exception(excepted) from reason
     #
     # Write provided contents to the specified file path and then safely close
-    excepted = "Failed when writing the specified contents to the opened file"
+    excepted = "failed when writing the specified contents to the opened file"
     try: file_open.write(str(contents))
     except Exception as reason: raise Exception(excepted) from reason
-    excepted = "Failed safely closing an opened file after successful writing"
+    excepted = "failed safely closing an opened file after successful writing"
     try: file_open.close()
     except Exception as reason: raise Exception(excepted) from reason
     #
@@ -85,15 +85,15 @@ def readfile(file_path):
     returned = None
     #
     # Open the file path for reading the contents that will be return upstream
-    excepted = "Failed to open the file path specified for reading operations"
+    excepted = "failed to open the file path specified for reading operations"
     try: file_open = open(file_path, "r")
     except Exception as reason: raise Exception(excepted) from reason
     #
     # Read the contents from the specified file path and perform house keeping
-    excepted = "Failed in reading the specified contents from the opened file"
+    excepted = "failed in reading the specified contents from the opened file"
     try: returned = file_open.read()
     except Exception as reason: raise Exception(excepted) from reason
-    excepted = "Failed safely closing an opened file after successful reading"
+    excepted = "failed safely closing an opened file after successful reading"
     try: file_open.close()
     except Exception as reason: raise Exception(excepted) from reason
     #
@@ -121,7 +121,7 @@ def findfiles(find_path, expression):
     find_path_glob = os_path.join(find_path, "**")
     #
     # Recursively find matching files and directories using regular expression
-    excepted = "Failed to execute glob and listsearch functions for matchings"
+    excepted = "failed to execute glob and listsearch functions for matchings"
     try: x = listsearch(glob_glob(find_path_glob, recursive=True), expression)
     except Exception as reason: raise Exception(excepted) from reason
     else: returned.extend(x)

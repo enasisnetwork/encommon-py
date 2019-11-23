@@ -85,8 +85,8 @@ def test_findfiles(tmp_path):
     writefile(os_path.join(tmp_path, "folder", "test.yml"), string)
     #
     # Assert the relevant conditions indicating either test success or failure
-    assert findfiles(tmp_path, r"\S+\/test.txt$") == expect
-    assert findfiles(tmp_path, "*.txt") == expect
+    assert sorted(findfiles(tmp_path, r"\S+\/test.txt$")) == sorted(expect)
+    assert sorted(findfiles(tmp_path, "*.txt")) == sorted(expect)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #------------------------------------------------------------------------------#

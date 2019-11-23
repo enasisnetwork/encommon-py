@@ -46,7 +46,7 @@ from time import strptime as time_strptime
 def timeformat(source, format):
     #
     # Convert the function source input parameter into its relevant couterpart
-    excepted = "Failed to convert specified source time into a time structure"
+    excepted = "failed to convert specified source time into a time structure"
     if isinstance(source, (int, float)):
         try: object = time_localtime(source)
         except Exception as reason: raise Exception(excepted) from reason
@@ -55,10 +55,10 @@ def timeformat(source, format):
         except Exception as reason: raise Exception(excepted) from reason
     #
     # Determine the Unix epoch time and format the timestamp using time object
-    excepted = "Failed to calculate base Unix epoch time using time structure"
+    excepted = "failed to calculate base Unix epoch time using time structure"
     try: epoch = round(time_mktime(object), 3)
     except Exception as reason: raise Exception(excepted) from reason
-    excepted = "Failed to construct the timestamp string using time structure"
+    excepted = "failed to construct the timestamp string using time structure"
     try: timestamp = time_strftime(format, object)
     except Exception as reason: raise Exception(excepted) from reason
     #

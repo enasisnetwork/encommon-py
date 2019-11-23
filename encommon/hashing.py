@@ -55,7 +55,7 @@ def makehash(source, convert):
     source_encoded = source.encode("utf-8")
     #
     # Generate a new hash in desired format using the specified value for seed
-    excepted = "Failed when generating specified hash from input source value"
+    excepted = "failed when generating specified hash from input source value"
     if convert == "sha256":
         try: x = hashlib_sha256(source_encoded).hexdigest()
         except Exception as reason: raise Exception(excepted) from reason
@@ -66,7 +66,7 @@ def makehash(source, convert):
         else: returned = x
     #
     # Generate a new hash in desired format using the specified value for seed
-    excepted = "Failed when generating specified hash from input source value"
+    excepted = "failed when generating specified hash from input source value"
     if convert == "sha512":
         try: x = hashlib_sha512(source_encoded).hexdigest()
         except Exception as reason: raise Exception(excepted) from reason
@@ -77,7 +77,7 @@ def makehash(source, convert):
         else: returned = x
     #
     # Generate a new hash in desired format using the specified value for seed
-    excepted = "Failed when generating specified hash from input source value"
+    excepted = "failed when generating specified hash from input source value"
     if convert == "uuid":
         try: x = str(uuid_uuid3(uuid_NAMESPACE_DNS, source))
         except Exception as reason: raise Exception(excepted) from reason
