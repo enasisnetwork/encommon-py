@@ -93,6 +93,7 @@ def ipv4format(source, format):
         else: returned = x
     #
     # Convert specified IPv4 network address using the intended network format
+    excepted = "failed to convert and format the source address into intended"
     if format == "address_mac":
         address = ipv4format(source, "address")
         try:
