@@ -42,7 +42,7 @@ from netaddr import IPAddress as netaddr_ipaddress
 #    * address_cidr  12.34.56.7/24        * network_cidr  12.34.56.0/24
 #    * address_host  12.34.56.7/32        * network_zero  12.34.56.0
 #    * broadcast     12.34.56.255         * netmask       255.255.255.0
-#    * address_mac   01:20:34:05:60:07
+#    * address_mac   01:20:34:05:60:07    * reversed      7.56.34.12
 #-----------------------------------------------------------------------------
 # Returns the newly converted addressing for source and desired address format
 #-----------------------------------------------------------------------------
@@ -100,6 +100,15 @@ def ipv4format(source, format):
             x = str().join([str(x.zfill(3)) for x in address.split(".")])
             y = '{0}:{1}:{2}:{3}:{4}:{5}'
             x = y.format(x[0:2], x[2:4], x[4:6], x[6:8], x[8:10], x[10:12])
+        except Exception as reason: raise Exception(excepted) from reason
+        else: returned = x
+    #
+    # Convert specified IPv4 network address using the intended network format
+    if format == "reversed":
+        address = ipv4format(source, "address")
+        try:
+            x = address.split(".")
+            x = ".".join([x[3], x[2], x[1], x[0]])
         except Exception as reason: raise Exception(excepted) from reason
         else: returned = x
     #
