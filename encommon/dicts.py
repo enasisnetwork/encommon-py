@@ -13,6 +13,8 @@
 # : Sort List of Dictionaries                                        dictssort #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Reorder Dictionary of Dictionaries                               dictksort #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Dictionary Value from Dot-Notation                            dictnotation #
 #==============================================================================#
 
 
@@ -112,6 +114,30 @@ def dictksort(source, sortby):
     else: returned = x
     #
     # Returns newly populated dictionary from source after sorting on keyvalue
+    return returned
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Dictionary Value from Dot-Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Process dictionary returning the appropriate value based on the dot notation
+#-----------------------------------------------------------------------------
+# source [REQUIRED] [DICTIONARY]
+#   Dictionary with other dictionaries for sort populating into new dictionary
+#-----------------------------------------------------------------------------
+# notation [REQUIRED] [STRING]
+#   Dot notation which will be used when identifying value from the dictionary
+#-----------------------------------------------------------------------------
+# Returns the value using dictionary based on the dot notation parameter value
+#-----------------------------------------------------------------------------
+def dictnotation(source, notation):
+    #
+    # Initial section for instantizing variables expected by remaining routine
+    returned = source
+    #
+    # Process dictionary returning appropriate value based on the dot notation
+    for part in notation.split("."):
+        returned = returned.get(part, {})
+    #
+    # Returns value using dictionary based on the dot notation parameter value
     return returned
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #

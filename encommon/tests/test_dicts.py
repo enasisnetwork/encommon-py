@@ -9,6 +9,8 @@
 # : Sort List of Dictionaries                                        dictssort #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Reorder Dictionary of Dictionaries                               dictksort #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Dictionary Value from Dot-Notation                            dictnotation #
 #==============================================================================#
 
 
@@ -66,6 +68,24 @@ def test_dictksort():
     # Assert the relevant conditions indicating either test success or failure
     assert list(dictksort(source, ("sort", "asc")).keys()) == expect_asc
     assert list(dictksort(source, ("sort", "desc")).keys()) == expect_desc
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Dictionary Value from Dot-Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Process dictionary returning the appropriate value based on the dot notation
+#-----------------------------------------------------------------------------
+def test_dictnotation():
+    #
+    # Import the module and functions relevant to this particular set of tests
+    from encommon.dicts import dictnotation
+    #
+    # Initial section for instantizing variables expected by remaining routine
+    source = {"foo": {"bar": {"baz": {"bop": "beep"}}}, "boo": "bee"}
+    #
+    # Assert the relevant conditions indicating either test success or failure
+    assert dictnotation(source, "foo.bar.baz.bop") == "beep"
+    assert dictnotation(source, "foo.bar.baz") == {"bop": "beep"}
+    assert dictnotation(source, "boo") == "bee"
+    assert dictnotation(source, "does.not.exist") == dict()
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #------------------------------------------------------------------------------#
