@@ -121,7 +121,7 @@ def dictksort(source, sortby):
 # Process dictionary returning the appropriate value based on the dot notation
 #-----------------------------------------------------------------------------
 # source [REQUIRED] [DICTIONARY]
-#   Dictionary with other dictionaries for sort populating into new dictionary
+#   Dictionary that will serve as the basis for the dot notation value extract
 #-----------------------------------------------------------------------------
 # notation [REQUIRED] [STRING]
 #   Dot notation which will be used when identifying value from the dictionary
@@ -134,8 +134,11 @@ def dictnotation(source, notation):
     returned = source
     #
     # Process dictionary returning appropriate value based on the dot notation
+    excepted = "failed to select the relevant noted value from the dictionary"
     for part in notation.split("."):
-        returned = returned.get(part, {})
+        try: x = returned.get(part, {})
+        except Exception as reason: raise Exception(excepted) from reason
+        else: returned = x
     #
     # Returns value using dictionary based on the dot notation parameter value
     return returned
