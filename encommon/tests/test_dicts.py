@@ -10,6 +10,8 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Reorder Dictionary of Dictionaries                               dictksort #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Flatten the Nested Dictionary                                  dictflatten #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Dictionary Value from Dot-Notation                            dictnotation #
 #==============================================================================#
 
@@ -68,6 +70,22 @@ def test_dictksort():
     # Assert the relevant conditions indicating either test success or failure
     assert list(dictksort(source, ("sort", "asc")).keys()) == expect_asc
     assert list(dictksort(source, ("sort", "desc")).keys()) == expect_desc
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Flatten the Nested Dictionary ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Flattens nested dictionary of dictionaries, lists, strings, and other values
+#-----------------------------------------------------------------------------
+def test_dictflatten():
+    #
+    # Import the module and functions relevant to this particular set of tests
+    from encommon.dicts import dictflatten
+    #
+    # Initial section for instantizing variables expected by remaining routine
+    source = {"foo": {"bar": {"baz": {"bop": "beep"}}}, "boo": "bee"}
+    #
+    # Assert the relevant conditions indicating either test success or failure
+    assert dictflatten(source)["foo_bar_baz_bop"] == "beep"
+    assert dictflatten(source)["boo"] == "bee"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #~~ Dictionary Value from Dot-Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

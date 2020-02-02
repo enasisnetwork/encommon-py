@@ -14,6 +14,8 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Reorder Dictionary of Dictionaries                               dictksort #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Flatten the Nested Dictionary                                  dictflatten #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Dictionary Value from Dot-Notation                            dictnotation #
 #==============================================================================#
 
@@ -26,6 +28,7 @@
 # Import libraries that should be present in the virtual or system environment
 #-----------------------------------------------------------------------------
 from collections import OrderedDict as collections_OrderedDict
+from collections.abc import MutableMapping as collections_MutableMapping
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #------------------------------------------------------------------------------#
@@ -115,6 +118,36 @@ def dictksort(source, sortby):
     #
     # Returns newly populated dictionary from source after sorting on keyvalue
     return returned
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Flatten the Nested Dictionary ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Flattens nested dictionary of dictionaries, lists, strings, and other values
+#-----------------------------------------------------------------------------
+# source [REQUIRED] [DICTIONARY]
+#   Dictionary with other dictionaries for sort populating into new dictionary
+#-----------------------------------------------------------------------------
+# delimiter [OPTIONAL] [STRING]
+#   Delimiter for joining dictionary keys and those of the nested dictionaries
+#-----------------------------------------------------------------------------
+# parent [OPTIONAL] [STRING]
+#   Used wehn the function is recursively calling itself to process dictionary
+#-----------------------------------------------------------------------------
+# Returns the flattened nested dictionary in single layer form using delimiter
+#-----------------------------------------------------------------------------
+def dictflatten(source, delimiter="_", parent=str()):
+    #
+    # Initial section for instantizing variables expected by remaining routine
+    returned = list()
+    #
+    # Flattens nested dictionary of dictionaries, lists, strings, other values
+    for key, value in source.items():
+        key_new = '{0}{1}{2}'.format(parent, delimiter, key) if parent else key
+        if isinstance(value, collections_MutableMapping):
+            returned.extend(dictflatten(value, delimiter, key_new).items())
+        else: returned.append((key_new, value))
+    #
+    # Returns flattened nested dictionary in single layer form using delimiter
+    return dict(returned)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #~~ Dictionary Value from Dot-Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
