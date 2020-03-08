@@ -12,11 +12,15 @@
 #------------------------------------------------------------------------------#
 # Simplistic Utilities for Network Addressing                                  #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
-# : Check IP Address is RFC1918                               str_ip_isrfc1918 #
+# : Check IP Address is Valid                                 str_ipv4_isvalid #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
-# : Check IP Address is Link-Local                          str_ip_islinklocal #
+# : Check IP Address is Public                               str_ipv4_ispublic #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
-# : Check IP Address is Localhost                           str_ip_islocalhost #
+# : Check IP Address is RFC1918                             str_ipv4_isrfc1918 #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Check IP Address is Link-Local                        str_ipv4_islinklocal #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Check IP Address is Localhost                         str_ipv4_islocalhost #
 #==============================================================================#
 
 
@@ -132,6 +136,53 @@ def ipv4format(source, format):
 # Simplistic Utilities for Network Addressing                                  #
 #------------------------------------------------------------------------------#
 #
+#~~ Check IP Address is Valid ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Validate that the IP address is within the boundary the octect values permit
+#-----------------------------------------------------------------------------
+# value [REQUIRED] [STRING]
+#   String based value that is parsed and processed determining when validated
+#-----------------------------------------------------------------------------
+# Returns the correct boolean indicating whether or not the value is validated
+#-----------------------------------------------------------------------------
+def str_ipv4_isvalid(value):
+    #
+    # Initial section for instantizing variables expected by remaining routine
+    returned = None
+    matching = r'^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}'
+    matching += r'(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
+    #
+    # Validate that IP address is within the boundary the octect values permit
+    if re_match(matching, str(value)): returned = True
+    else: returned = False
+    #
+    # Returns correct boolean indicating whether or not the value is validated
+    return returned
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Check IP Address is Public ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Validate that the IP address is within the boundary of public IP assignments
+#-----------------------------------------------------------------------------
+# value [REQUIRED] [STRING]
+#   String based value that is parsed and processed determining when validated
+#-----------------------------------------------------------------------------
+# Returns the correct boolean indicating whether or not the value is validated
+#-----------------------------------------------------------------------------
+def str_ipv4_ispublic(value):
+    #
+    # Initial section for instantizing variables expected by remaining routine
+    returned = None
+    #
+    # Validate that IP address is within the boundary of public IP assignments
+    if not str_ipv4_isvalid(value): returned = False
+    elif str_ipv4_isrfc1918(value): returned = False
+    elif str_ipv4_islinklocal(value): returned = False
+    elif str_ipv4_islocalhost(value): returned = False
+    else: returned = True
+    #
+    # Returns correct boolean indicating whether or not the value is validated
+    return returned
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
 #~~ Check IP Address is RFC1918 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Validate that the IP address is within the boundaries of what RFC1918 define
 #-----------------------------------------------------------------------------
@@ -140,7 +191,7 @@ def ipv4format(source, format):
 #-----------------------------------------------------------------------------
 # Returns the correct boolean indicating whether or not the value is validated
 #-----------------------------------------------------------------------------
-def str_ip_isrfc1918(value):
+def str_ipv4_isrfc1918(value):
     #
     # Initial section for instantizing variables expected by remaining routine
     returned = None
@@ -148,7 +199,8 @@ def str_ip_isrfc1918(value):
     matching += r'|(172\.((1[6-9])|(2[0-9])|(3[0-1]))\.\d+\.\d+)$'
     #
     # Validate that IP address is within the boundaries of what RFC1918 define
-    if re_match(matching, str(value)): returned = True
+    if not str_ipv4_isvalid(value): returned = False
+    elif re_match(matching, str(value)): returned = True
     else: returned = False
     #
     # Returns correct boolean indicating whether or not the value is validated
@@ -163,14 +215,15 @@ def str_ip_isrfc1918(value):
 #-----------------------------------------------------------------------------
 # Returns the correct boolean indicating whether or not the value is validated
 #-----------------------------------------------------------------------------
-def str_ip_islinklocal(value):
+def str_ipv4_islinklocal(value):
     #
     # Initial section for instantizing variables expected by remaining routine
     returned = None
     matching = r'^(169\.254\.\d+\.\d+)$'
     #
     # Validate that IP address is within specifications for link-local address
-    if re_match(matching, str(value)): returned = True
+    if not str_ipv4_isvalid(value): returned = False
+    elif re_match(matching, str(value)): returned = True
     else: returned = False
     #
     # Returns correct boolean indicating whether or not the value is validated
@@ -185,14 +238,15 @@ def str_ip_islinklocal(value):
 #-----------------------------------------------------------------------------
 # Returns the correct boolean indicating whether or not the value is validated
 #-----------------------------------------------------------------------------
-def str_ip_islocalhost(value):
+def str_ipv4_islocalhost(value):
     #
     # Initial section for instantizing variables expected by remaining routine
     returned = None
     matching = r'^(127\.\d+\.\d+\.\d+)$'
     #
     # Validate that IP address is within specifications for link-local address
-    if re_match(matching, str(value)): returned = True
+    if not str_ipv4_isvalid(value): returned = False
+    elif re_match(matching, str(value)): returned = True
     else: returned = False
     #
     # Returns correct boolean indicating whether or not the value is validated

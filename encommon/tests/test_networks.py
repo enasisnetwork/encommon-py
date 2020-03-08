@@ -8,11 +8,15 @@
 #------------------------------------------------------------------------------#
 # Simplistic Utilities for Network Addressing                                  #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
-# : Check IP Address is RFC1918                               str_ip_isrfc1918 #
+# : Check IP Address is Valid                                 str_ipv4_isvalid #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
-# : Check IP Address is Link-Local                          str_ip_islinklocal #
+# : Check IP Address is Public                               str_ipv4_ispublic #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
-# : Check IP Address is Localhost                           str_ip_islocalhost #
+# : Check IP Address is RFC1918                             str_ipv4_isrfc1918 #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Check IP Address is Link-Local                        str_ipv4_islinklocal #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Check IP Address is Localhost                         str_ipv4_islocalhost #
 #==============================================================================#
 
 
@@ -48,46 +52,94 @@ def test_ipv4format():
 # Simplistic Utilities for Network Addressing                                  #
 #------------------------------------------------------------------------------#
 #
+#~~ Check IP Address is Valid ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Validate that the IP address is within the boundary the octect values permit
+#-----------------------------------------------------------------------------
+def test_str_ipv4_isvalid():
+    #
+    # Import the module and functions relevant to this particular set of tests
+    from encommon.networks import str_ipv4_isvalid
+    #
+    # Assert the relevant conditions indicating either test success or failure
+    assert str_ipv4_isvalid("0.0.0.0") == True
+    assert str_ipv4_isvalid("127.0.0.1") == True
+    assert str_ipv4_isvalid("192.168.123.45") == True
+    assert str_ipv4_isvalid("169.254.123.45") == True
+    assert str_ipv4_isvalid("256.256.256.256") == False
+    assert str_ipv4_isvalid("208.67.222.222") == True
+    assert str_ipv4_isvalid("208.67.220.220") == True
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Check IP Address is Public ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Validate that the IP address is within the boundary of public IP assignments
+#-----------------------------------------------------------------------------
+def test_str_ipv4_ispublic():
+    #
+    # Import the module and functions relevant to this particular set of tests
+    from encommon.networks import str_ipv4_ispublic
+    #
+    # Assert the relevant conditions indicating either test success or failure
+    assert str_ipv4_ispublic("0.0.0.0") == True
+    assert str_ipv4_ispublic("127.0.0.1") == False
+    assert str_ipv4_ispublic("192.168.123.45") == False
+    assert str_ipv4_ispublic("169.254.123.45") == False
+    assert str_ipv4_ispublic("256.256.256.256") == False
+    assert str_ipv4_ispublic("208.67.222.222") == True
+    assert str_ipv4_ispublic("208.67.220.220") == True
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
 #~~ Check IP Address is RFC1918 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Validate that the IP address is within the boundaries of what RFC1918 define
 #-----------------------------------------------------------------------------
-def test_str_ip_isrfc1918():
+def test_str_ipv4_isrfc1918():
     #
     # Import the module and functions relevant to this particular set of tests
-    from encommon.networks import str_ip_isrfc1918
+    from encommon.networks import str_ipv4_isrfc1918
     #
     # Assert the relevant conditions indicating either test success or failure
-    assert str_ip_isrfc1918("127.0.0.1") ==  False
-    assert str_ip_isrfc1918("192.168.123.45") == True
-    assert str_ip_isrfc1918("169.254.123.45") == False
+    assert str_ipv4_isrfc1918("0.0.0.0") == False
+    assert str_ipv4_isrfc1918("127.0.0.1") == False
+    assert str_ipv4_isrfc1918("192.168.123.45") == True
+    assert str_ipv4_isrfc1918("169.254.123.45") == False
+    assert str_ipv4_isrfc1918("256.256.256.256") == False
+    assert str_ipv4_isrfc1918("208.67.222.222") == False
+    assert str_ipv4_isrfc1918("208.67.220.220") == False
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #~~ Check IP Address is Link-Local ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Validate that the IP address is within specifications for link-local address
 #-----------------------------------------------------------------------------
-def test_str_ip_islinklocal():
+def test_str_ipv4_islinklocal():
     #
     # Import the module and functions relevant to this particular set of tests
-    from encommon.networks import str_ip_islinklocal
+    from encommon.networks import str_ipv4_islinklocal
     #
     # Assert the relevant conditions indicating either test success or failure
-    assert str_ip_islinklocal("127.0.0.1") ==  False
-    assert str_ip_islinklocal("192.168.123.45") == False
-    assert str_ip_islinklocal("169.254.123.45") == True
+    assert str_ipv4_islinklocal("0.0.0.0") == False
+    assert str_ipv4_islinklocal("127.0.0.1") == False
+    assert str_ipv4_islinklocal("192.168.123.45") == False
+    assert str_ipv4_islinklocal("169.254.123.45") == True
+    assert str_ipv4_islinklocal("256.256.256.256") == False
+    assert str_ipv4_islinklocal("208.67.222.222") == False
+    assert str_ipv4_islinklocal("208.67.220.220") == False
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #~~ Check IP Address is Localhost ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Validate that the IP address is within specifications for loopback interface
 #-----------------------------------------------------------------------------
-def test_str_ip_islocalhost():
+def test_str_ipv4_islocalhost():
     #
     # Import the module and functions relevant to this particular set of tests
-    from encommon.networks import str_ip_islocalhost
+    from encommon.networks import str_ipv4_islocalhost
     #
     # Assert the relevant conditions indicating either test success or failure
-    assert str_ip_islocalhost("127.0.0.1") == True
-    assert str_ip_islocalhost("192.168.123.45") == False
-    assert str_ip_islocalhost("169.254.123.45") == False
+    assert str_ipv4_islocalhost("0.0.0.0") == False
+    assert str_ipv4_islocalhost("127.0.0.1") == True
+    assert str_ipv4_islocalhost("192.168.123.45") == False
+    assert str_ipv4_islocalhost("169.254.123.45") == False
+    assert str_ipv4_islocalhost("256.256.256.256") == False
+    assert str_ipv4_islocalhost("208.67.222.222") == False
+    assert str_ipv4_islocalhost("208.67.220.220") == False
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #------------------------------------------------------------------------------#
