@@ -21,6 +21,8 @@
 # : Check IP Address is Link-Local                        str_ipv4_islinklocal #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Check IP Address is Localhost                         str_ipv4_islocalhost #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Check IP Address in Network                              str_ipv4_insubnet #
 #==============================================================================#
 
 
@@ -248,6 +250,31 @@ def str_ipv4_islocalhost(value):
     if not str_ipv4_isvalid(value): returned = False
     elif re_match(matching, str(value)): returned = True
     else: returned = False
+    #
+    # Returns correct boolean indicating whether or not the value is validated
+    return returned
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Check IP Address in Network ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Validate that the IP address is within the one of the networks in given list
+#-----------------------------------------------------------------------------
+# value [REQUIRED] [STRING]
+#   String based value that is parsed and processed determining when validated
+#-----------------------------------------------------------------------------
+# networks [REQUIRED] [LIST]
+#   List of networks in the CIDR format iterated for validating provided value
+#-----------------------------------------------------------------------------
+# Returns the correct boolean indicating whether or not the value is validated
+#-----------------------------------------------------------------------------
+def str_ipv4_insubnet(value, networks):
+    #
+    # Initial section for instantizing variables expected by remaining routine
+    returned = False
+    #
+    # Validate that IP address is within the one of the networks in given list
+    for network in networks:
+        if netaddr_ipaddress(value) not in netaddr_ipnetwork(network): continue
+        returned = True
     #
     # Returns correct boolean indicating whether or not the value is validated
     return returned

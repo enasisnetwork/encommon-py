@@ -17,6 +17,8 @@
 # : Check IP Address is Link-Local                        str_ipv4_islinklocal #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Check IP Address is Localhost                         str_ipv4_islocalhost #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Check IP Address in Network                              str_ipv4_insubnet #
 #==============================================================================#
 
 
@@ -140,6 +142,19 @@ def test_str_ipv4_islocalhost():
     assert str_ipv4_islocalhost("256.256.256.256") == False
     assert str_ipv4_islocalhost("208.67.222.222") == False
     assert str_ipv4_islocalhost("208.67.220.220") == False
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Check IP Address in Network ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Validate that the IP address is within the one of the networks in given list
+#-----------------------------------------------------------------------------
+def test_str_ipv4_insubnet():
+    #
+    # Import the module and functions relevant to this particular set of tests
+    from encommon.networks import str_ipv4_insubnet
+    #
+    # Assert the relevant conditions indicating either test success or failure
+    assert str_ipv4_insubnet("192.168.1.1", ["172.16.0.0/12", "192.168.0.0/16"])
+    assert not str_ipv4_insubnet("1.2.3.4", ["172.16.0.0/12", "192.168.0.0/16"])
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #------------------------------------------------------------------------------#
