@@ -2,14 +2,14 @@
 # Enasis Network Common Libraries                                              #
 # Python Functions                                             Time Processing #
 #==============================================================================#
-# Python Functions for Time Processing                                         #
+# Primary Functions for Time Processing                                        #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Standard Time Converting                                        timeformat #
 #==============================================================================#
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Time Processing                                         #
+# Primary Functions for Time Processing                                        #
 #------------------------------------------------------------------------------#
 #
 #~~ Standard Time Converting ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

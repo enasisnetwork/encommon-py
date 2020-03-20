@@ -2,7 +2,7 @@
 # Enasis Network Common Libraries                                              #
 # Python Functions                                         Pickle Manipulation #
 #==============================================================================#
-# Python Functions for Pickle Manipulation                                     #
+# Primary Functions for Pickle Manipulation                                    #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Populate the Pickle Contents                                    savepickle #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
@@ -11,7 +11,7 @@
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Pickle Manipulation                                     #
+# Primary Functions for Pickle Manipulation                                    #
 #------------------------------------------------------------------------------#
 #
 #~~ Populate the Pickle Contents ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

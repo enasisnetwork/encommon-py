@@ -6,7 +6,7 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
-# Python Functions for List Manipulation                                       #
+# Primary Functions for List Manipulation                                      #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Search List with Expressions                                    listsearch #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
@@ -31,7 +31,7 @@ from fnmatch import fnmatch as fnmatch_fnmatch
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for List Manipulation                                       #
+# Primary Functions for List Manipulation                                      #
 #------------------------------------------------------------------------------#
 #
 #~~ Search List with Expressions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

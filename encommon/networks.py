@@ -6,7 +6,7 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
-# Python Functions for Network Addressing                                      #
+# Primary Functions for Network Addressing                                     #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Manipulate an IPv4 Network Address                              ipv4format #
 #------------------------------------------------------------------------------#
@@ -42,7 +42,7 @@ from re import match as re_match
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Network Addressing                                      #
+# Primary Functions for Network Addressing                                     #
 #------------------------------------------------------------------------------#
 #
 #~~ Manipulate an IPv4 Network Address ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

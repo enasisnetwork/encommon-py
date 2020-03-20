@@ -6,7 +6,7 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
-# Python Functions for Generating Hashes                                       #
+# Primary Functions for Generating Hashes                                      #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Generate Hashes from Values                                       makehash #
 #==============================================================================#
@@ -31,7 +31,7 @@ from uuid import NAMESPACE_DNS as uuid_NAMESPACE_DNS
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Generating Hashes                                       #
+# Primary Functions for Generating Hashes                                      #
 #------------------------------------------------------------------------------#
 #
 #~~ Generate Hashes from Values ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

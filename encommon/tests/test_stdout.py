@@ -2,14 +2,14 @@
 # Enasis Network Common Libraries                                              #
 # Python Functions                                 Logging and Standard Output #
 #==============================================================================#
-# Python Functions for Logging and Standard Output                             #
+# Primary Functions for Logging and Standard Output                            #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Logging and Standard Output                                       messages #
 #==============================================================================#
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Logging and Standard Output                             #
+# Primary Functions for Logging and Standard Output                            #
 #------------------------------------------------------------------------------#
 #
 #~~ Logging and Standard Output ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

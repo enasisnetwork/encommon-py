@@ -2,14 +2,14 @@
 # Enasis Network Common Libraries                                              #
 # Python Functions                                           Generating Hashes #
 #==============================================================================#
-# Python Functions for Generating Hashes                                       #
+# Primary Functions for Generating Hashes                                      #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Generate Hashes from Values                                       makehash #
 #==============================================================================#
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Generating Hashes                                       #
+# Primary Functions for Generating Hashes                                      #
 #------------------------------------------------------------------------------#
 #
 #~~ Generate Hashes from Values ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

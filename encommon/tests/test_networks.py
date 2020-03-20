@@ -2,7 +2,7 @@
 # Enasis Network Common Libraries                                              #
 # Python Functions                                          Network Addressing #
 #==============================================================================#
-# Python Functions for Network Addressing                                      #
+# Primary Functions for Network Addressing                                     #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Manipulate an IPv4 Network Address                              ipv4format #
 #------------------------------------------------------------------------------#
@@ -23,7 +23,7 @@
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Network Addressing                                      #
+# Primary Functions for Network Addressing                                     #
 #------------------------------------------------------------------------------#
 #
 #~~ Manipulate an IPv4 Network Address ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

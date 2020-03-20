@@ -2,7 +2,7 @@
 # Enasis Network Common Libraries                                              #
 # Python Functions                                         Reading and Writing #
 #==============================================================================#
-# Python Functions for Reading and Writing                                     #
+# Primary Functions for Reading and Writing                                    #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Simple File Writing                                              writefile #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
@@ -13,7 +13,7 @@
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Reading and Writing                                     #
+# Primary Functions for Reading and Writing                                    #
 #------------------------------------------------------------------------------#
 #
 #~~ Simple File Writing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -6,7 +6,7 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
-# Python Functions for Logging and Standard Output                             #
+# Primary Functions for Logging and Standard Output                            #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Logging and Standard Output                                       messages #
 #==============================================================================#
@@ -27,7 +27,7 @@ from logging import log as logging_log
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Logging and Standard Output                             #
+# Primary Functions for Logging and Standard Output                            #
 #------------------------------------------------------------------------------#
 #
 #~~ Logging and Standard Output ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

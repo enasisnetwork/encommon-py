@@ -2,7 +2,7 @@
 # Enasis Network Common Libraries                                              #
 # Python Functions                                     Dictionary Manipulation #
 #==============================================================================#
-# Python Functions for Dictionary Manipulation                                 #
+# Primary Functions for Dictionary Manipulation                                #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : List of Dictionaries to Dictionary                             dictstodict #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
@@ -12,12 +12,14 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Flatten the Nested Dictionary                                  dictflatten #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
-# : Dictionary Value from Dot-Notation                            dictnotation #
+# : Get Value from Dictionary with Dot Notation                      dictnoget #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Set Value in Dictionary with Dot Notation                        dictnoset #
 #==============================================================================#
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Dictionary Manipulation                                 #
+# Primary Functions for Dictionary Manipulation                                #
 #------------------------------------------------------------------------------#
 #
 #~~ List of Dictionaries to Dictionary ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -88,22 +90,45 @@ def test_dictflatten():
     assert dictflatten(source)["boo"] == "bee"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-#~~ Dictionary Value from Dot-Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~ Get Value from Dictionary with Dot Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Process dictionary returning the appropriate value based on the dot notation
 #-----------------------------------------------------------------------------
-def test_dictnotation():
+def test_dictnoget():
     #
     # Import the module and functions relevant to this particular set of tests
-    from encommon.dicts import dictnotation
+    from encommon.dicts import dictnoget
     #
     # Initial section for instantizing variables expected by remaining routine
     source = {"foo": {"bar": {"baz": {"bop": "beep"}}}, "boo": "bee"}
     #
     # Assert the relevant conditions indicating either test success or failure
-    assert dictnotation(source, "foo.bar.baz.bop") == "beep"
-    assert dictnotation(source, "foo.bar.baz") == {"bop": "beep"}
-    assert dictnotation(source, "boo") == "bee"
-    assert dictnotation(source, "does.not.exist") == dict()
+    assert dictnoget(source, "foo.bar.baz.bop") == "beep"
+    assert dictnoget(source, "foo.bar.baz") == {"bop": "beep"}
+    assert dictnoget(source, "boo") == "bee"
+    assert dictnoget(source, "does.not.exist") == dict()
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Set Value in Dictionary with Dot Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Update or create the dictionary structure or value based on the dot notation
+#-----------------------------------------------------------------------------
+def test_dictnoset():
+    #
+    # Import the module and functions relevant to this particular set of tests
+    from encommon.dicts import dictnoset
+    #
+    # Initial section for instantizing variables expected by remaining routine
+    expect = {"key1": "value1", "key2": "value2", "key3": ["value3", "value4"]}
+    expect_string = {**expect, **{"foo": {"bar": {"baz": "bop"}}}}
+    expect_list = {**expect, **{"foo": {"bar": {"baz": ["bop", "beep"]}}}}
+    expect_dict = {**expect, **{"foo": {"bar": {"baz": {"bop": "beep"}}}}}
+    expect_bool = {**expect, **{"foo": {"bar": {"baz": {"bop": True}}}}}
+    #
+    # Assert the relevant conditions indicating either test success or failure
+    assert dictnoset(expect, "foo", "bop") == {**expect, **{"foo": "bop"}}
+    assert dictnoset(expect, "foo.bar.baz", "bop") == expect_string
+    assert dictnoset(expect, "foo.bar.baz", ["bop", "beep"]) == expect_list
+    assert dictnoset(expect, "foo.bar.baz", {"bop": "beep"}) == expect_dict
+    assert dictnoset(expect, "foo.bar.baz.bop", True) == expect_bool
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #------------------------------------------------------------------------------#

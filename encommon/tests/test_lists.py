@@ -2,7 +2,7 @@
 # Enasis Network Common Libraries                                              #
 # Python Functions                                           List Manipulation #
 #==============================================================================#
-# Python Functions for List Manipulation                                       #
+# Primary Functions for List Manipulation                                      #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Search List with Expressions                                    listsearch #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
@@ -13,7 +13,7 @@
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for List Manipulation                                       #
+# Primary Functions for List Manipulation                                      #
 #------------------------------------------------------------------------------#
 #
 #~~ Search List with Expressions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

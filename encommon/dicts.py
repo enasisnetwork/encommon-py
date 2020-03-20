@@ -6,7 +6,7 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
-# Python Functions for Dictionary Manipulation                                 #
+# Primary Functions for Dictionary Manipulation                                #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : List of Dictionaries to Dictionary                             dictstodict #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
@@ -16,7 +16,9 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Flatten the Nested Dictionary                                  dictflatten #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
-# : Dictionary Value from Dot-Notation                            dictnotation #
+# : Get Value from Dictionary with Dot Notation                      dictnoget #
+# : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
+# : Set Value in Dictionary with Dot Notation                        dictnoset #
 #==============================================================================#
 
 
@@ -35,7 +37,7 @@ from collections.abc import MutableMapping as collections_MutableMapping
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Dictionary Manipulation                                 #
+# Primary Functions for Dictionary Manipulation                                #
 #------------------------------------------------------------------------------#
 #
 #~~ List of Dictionaries to Dictionary ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -150,7 +152,7 @@ def dictflatten(source, delimiter="_", parent=str()):
     return dict(returned)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-#~~ Dictionary Value from Dot-Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~ Get Value from Dictionary with Dot Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Process dictionary returning the appropriate value based on the dot notation
 #-----------------------------------------------------------------------------
 # source [REQUIRED] [DICTIONARY]
@@ -161,7 +163,7 @@ def dictflatten(source, delimiter="_", parent=str()):
 #-----------------------------------------------------------------------------
 # Returns the value using dictionary based on the dot notation parameter value
 #-----------------------------------------------------------------------------
-def dictnotation(source, notation):
+def dictnoget(source, notation):
     #
     # Initial section for instantizing variables expected by remaining routine
     returned = source
@@ -174,6 +176,45 @@ def dictnotation(source, notation):
         else: returned = x
     #
     # Returns value using dictionary based on the dot notation parameter value
+    return returned
+#-----------------------------------------------------------------------------
+def dictnotation(source, notation): return dictnoget(source, notation)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~ Set Value in Dictionary with Dot Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Update or create the dictionary structure or value based on the dot notation
+#-----------------------------------------------------------------------------
+# source [REQUIRED] [DICTIONARY]
+#   Dictionary that will serve as the basis for the dot notation value updates
+#-----------------------------------------------------------------------------
+# notation [REQUIRED] [STRING]
+#   Dot notation which will be used when populating values into the dictionary
+#-----------------------------------------------------------------------------
+# value [OPTIONAL] [STRING|DICTIONARY|LIST|INTEGER|BOOLEAN]
+#   Value that will be set or removed from dictionary when this is not defined
+#-----------------------------------------------------------------------------
+# Returns the dictionary that was updated using the dot notation and its value
+#-----------------------------------------------------------------------------
+def dictnoset(source, notation, value):
+    #
+    # Initial section for instantizing variables expected by remaining routine
+    returned = dict(source.items())
+    #
+    # Update or create dictionary structure or value based on the dot notation
+    if "." not in notation: returned.update({notation: value})
+    else:
+        dict_base = notation.split(".")[:1][0]
+        dict_more = ".".join(notation.split(".")[1:])
+        if dict_base not in returned:
+            returned.update({dict_base: dict()})
+        #
+        # Recursively enumerate and populate remaining portion of dot notation
+        excepted = "failed to enumerate dot notation or update the dictionary"
+        try: x = dictnoset(returned[dict_base], dict_more, value)
+        except Exception as reason: raise Exception(excepted) from reason
+        else: returned[dict_base].update(x)
+    #
+    # Returns dictionary that was updated using the dot notation and its value
     return returned
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #

@@ -6,7 +6,7 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
-# Python Functions for Reading and Writing                                     #
+# Primary Functions for Reading and Writing                                    #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Simple File Writing                                              writefile #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
@@ -35,7 +35,7 @@ from encommon.lists import listsearch
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Reading and Writing                                     #
+# Primary Functions for Reading and Writing                                    #
 #------------------------------------------------------------------------------#
 #
 #~~ Simple File Writing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

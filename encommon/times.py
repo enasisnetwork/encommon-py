@@ -6,7 +6,7 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
-# Python Functions for Time Processing                                         #
+# Primary Functions for Time Processing                                        #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Standard Time Converting                                        timeformat #
 #==============================================================================#
@@ -29,7 +29,7 @@ from time import strptime as time_strptime
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Time Processing                                         #
+# Primary Functions for Time Processing                                        #
 #------------------------------------------------------------------------------#
 #
 #~~ Standard Time Converting ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

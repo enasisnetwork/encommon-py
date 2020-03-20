@@ -6,7 +6,7 @@
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Library Import and Global Variables                                        #
 #------------------------------------------------------------------------------#
-# Python Functions for Pickle Manipulation                                     #
+# Primary Functions for Pickle Manipulation                                    #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
 # : Populate the Pickle Contents                                    savepickle #
 # : - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - #
@@ -30,7 +30,7 @@ from pickle import load as pickle_load
 
 
 #------------------------------------------------------------------------------#
-# Python Functions for Pickle Manipulation                                     #
+# Primary Functions for Pickle Manipulation                                    #
 #------------------------------------------------------------------------------#
 #
 #~~ Populate the Pickle Contents ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
