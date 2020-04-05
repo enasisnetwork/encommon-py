@@ -36,7 +36,7 @@ distutils_core_setup(
     #
     # Information regarding the project including name version and description
     name="encommon",
-    version="1.9.0",
+    version="1.9.1",
     description="Enasis Network Common Libraries",
     author="Enasis Network",
     url="https://github.com/enasisnetwork/encommon-py",

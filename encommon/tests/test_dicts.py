@@ -83,10 +83,11 @@ def test_dictflatten():
     from encommon.dicts import dictflatten
     #
     # Initial section for instantizing variables expected by remaining routine
-    source = {"foo": {"bar": {"baz": {"bop": "beep"}}}, "boo": "bee"}
+    source = {"Foo": {"bar": {"baz": {"bop": "beep"}}}, "boo": "bee"}
     #
     # Assert the relevant conditions indicating either test success or failure
-    assert dictflatten(source)["foo_bar_baz_bop"] == "beep"
+    assert dictflatten(source)["Foo_bar_baz_bop"] == "beep"
+    assert dictflatten(source, lowercase=True)["foo_bar_baz_bop"] == "beep"
     assert dictflatten(source)["boo"] == "bee"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #

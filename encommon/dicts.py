@@ -134,9 +134,12 @@ def dictksort(source, sortby):
 # parent [OPTIONAL] [STRING]
 #   Used wehn the function is recursively calling itself to process dictionary
 #-----------------------------------------------------------------------------
+# lowercase [OPTIONAL] [BOOLEAN]
+#   Determine when each new flattened key value will be converted to lowercase
+#-----------------------------------------------------------------------------
 # Returns the flattened nested dictionary in single layer form using delimiter
 #-----------------------------------------------------------------------------
-def dictflatten(source, delimiter="_", parent=str()):
+def dictflatten(source, delimiter="_", parent=str(), lowercase=False):
     #
     # Initial section for instantizing variables expected by remaining routine
     returned = list()
@@ -144,8 +147,10 @@ def dictflatten(source, delimiter="_", parent=str()):
     # Flattens nested dictionary of dictionaries, lists, strings, other values
     for key, value in source.items():
         key_new = '{0}{1}{2}'.format(parent, delimiter, key) if parent else key
+        if lowercase: key_new = key_new.lower()
         if isinstance(value, collections_MutableMapping):
-            returned.extend(dictflatten(value, delimiter, key_new).items())
+            extended = dictflatten(value, delimiter, key_new, lowercase).items()
+            returned.extend(extended)
         else: returned.append((key_new, value))
     #
     # Returns flattened nested dictionary in single layer form using delimiter
