@@ -155,6 +155,7 @@ def test_str_ipv4_insubnet():
     # Assert the relevant conditions indicating either test success or failure
     assert str_ipv4_insubnet("192.168.1.1", ["172.16.0.0/12", "192.168.0.0/16"])
     assert not str_ipv4_insubnet("1.2.3.4", ["172.16.0.0/12", "192.168.0.0/16"])
+    assert str_ipv4_insubnet("192.168.1.1", ["192.168.1.1/32"])
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #------------------------------------------------------------------------------#
